@@ -336,7 +336,7 @@ function witMessage(recipientId, text) {
 };
 
 if (require.main === module) {
-  console.log("Bot testing mode.="+accessToken);
+  console.log("Bot testing mode.="+actions);
   const client = new Wit({accessToken, actions});
   interactive(client);
 }else {
