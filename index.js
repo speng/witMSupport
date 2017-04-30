@@ -8,12 +8,12 @@ var app = express();
 //const {Wit, log} = require('node-wit');
 
 // Wit.ai parameters
-const WIT_TOKEN = '4UWV4QHZ2KWYUMUYO7VRPUVLFIA5YB7M';
+const WIT_TOKEN = '37BT5Z2COQLYOLMKKJXAYZZWP7H5YXNI';
 
 // Messenger API parameters
 const FB_PAGE_TOKEN = 'EAAbI7HQaG5wBAGalHZAR8cssoctb2cZB2F06QNYDpLRxO9Mo3KGdfaBpLxtb3EiDcXKNCpuMReIQoNbrEFqNi8tRxJl7SICEiwhT1C39IqHsf2ToyM931zPooTDvn4wQTHp1RdXULPWZBAzOH4WJRBNKmh0dCJ68Xyowm1Gzk5MmNHnAW8A';
 
-var accessToken = '4UWV4QHZ2KWYUMUYO7VRPUVLFIA5YB7M';
+var accessToken = '37BT5Z2COQLYOLMKKJXAYZZWP7H5YXNI';
 //var Wit = require('node-wit').Wit;
 //var interactive = require('node-wit').interactive;
 let Wit = null;
