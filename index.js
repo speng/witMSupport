@@ -341,4 +341,6 @@ if (require.main === module) {
   interactive(client);
 }else {
     console.log('required as a module');
+	  const client = new Wit({accessToken, actions});
+	interactive(client);
 }
