@@ -145,7 +145,7 @@ app.get('/webhook', function (req, res) {
 });
 
 // handler receiving messages
-app.post('/webhook', function (req, res) {
+/*app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (var i = 0; i < events.length; i++) {
         var event = events[i];
@@ -162,10 +162,10 @@ app.post('/webhook', function (req, res) {
 		}
     }
     res.sendStatus(200);
-});
+});*/
 
 // Message handler
-/*app.post('/webhook', (req, res) => {
+app.post('/webhook', (req, res) => {
   // Parse the Messenger payload
   // See the Webhook reference
   // https://developers.facebook.com/docs/messenger-platform/webhook-reference
@@ -227,7 +227,7 @@ app.post('/webhook', function (req, res) {
     });
   }
   res.sendStatus(200);
-});*/
+});
 
 // generic function sending messages
 function sendMessage(recipientId, message) {
@@ -324,7 +324,7 @@ function witMessage(recipientId, text) {
   
 };
 
-if (require.main === module) {
+/*if (require.main === module) {
   console.log("Bot testing mode.="+actions);
   const client = new Wit({accessToken, actions});
   interactive(client);
@@ -332,4 +332,4 @@ if (require.main === module) {
     console.log('required as a module');
 	  const client = new Wit({accessToken, actions});
 	interactive(client);
-}
+}*/
