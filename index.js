@@ -4,8 +4,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
-//var WIT_TOKEN = '4UWV4QHZ2KWYUMUYO7VRPUVLFIA5YB7M';
-//const {Wit, log} = require('node-wit');
 
 // Wit.ai parameters
 const WIT_TOKEN = '37BT5Z2COQLYOLMKKJXAYZZWP7H5YXNI';
@@ -337,10 +335,10 @@ function witMessage(recipientId, text) {
   
 };
 
-//if (require.main === module) {
-  //console.log("Bot testing mode.");
+if (require.main === module) {
+  console.log("Bot testing mode.");
   const client = new Wit({accessToken, actions});
   interactive(client);
-//}else {
-   // console.log('required as a module');
-//}
+}else {
+    console.log('required as a module');
+}
