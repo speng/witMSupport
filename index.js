@@ -439,6 +439,28 @@ function processPostback(event) {
       var message = greeting + "My name is Support Bot. I can tell you various details regarding your problem. What would you like to know about?";
       sendMessage(senderId, {text: message});
     });
+  }else{
+	  const text =  event.postback.payload;
+		const sender = event.sender.id;
+		const sessionId = findOrCreateSession(sender);
+
+		 wit.runActions(
+		  sessionId, // the user's current session
+		  text, // the user's message
+		  sessions[sessionId].context // the user's current session state
+		).then((context) => {
+		  console.log('Waiting for next user messages');
+		  console.log('******context'+JSON.stringify(context.ending));
+		  if (context.ending) {
+			delete sessions[sessionId];
+		  }else{
+			sessions[sessionId].context = context;
+		  }
+		  
+		})
+		.catch((err) => {
+		  console.error('Oops! Got an error from Wit: ', err.stack || err);
+		})
   }
 }
 
