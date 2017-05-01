@@ -131,7 +131,7 @@ const fbMessage = (id, response) => {
 
         var body = JSON.stringify({
           recipient: { id },
-          message: { text },
+          message: { response },
         });
     }
   
