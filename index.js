@@ -127,6 +127,48 @@ const fbMessage = (id, response) => {
             }
           }});
       
+    }else if(text == "support centre"){
+
+        var body = JSON.stringify({
+          recipient:{
+            id: id
+          },
+          message:{
+            attachment:{
+              type:"template",
+              payload:{
+                template_type:"generic",
+                elements:[
+                   {
+                    title:'Service Centre',
+                    image_url:'http://www.xynapse-asia.com/webe/centre.png',
+                    subtitle:'For guests!',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Service Centre",
+                        payload:"service centre"
+                      }              
+                    ]
+                  },
+                  {
+                    title:'Service Desk',
+                    image_url:'http://www.xynapse-asia.com/webe/service%20desk.png',
+                    subtitle:'For staff!',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Service Desk",
+                        payload:"service desk"
+                      }              
+                    ]      
+                  }
+                ]
+              }
+            }
+          }});
+
+
     }else if(response.quickreplies){
        var quickreplies = [];
        var index;
