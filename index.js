@@ -37,6 +37,96 @@ app.listen((process.env.PORT || 3000));
 // https://developers.facebook.com/docs/messenger-platform/send-api-reference
 
 const fbMessage = (id, text) => {
+	if(text == "mainmenu"){
+
+      var body = JSON.stringify({
+          recipient:{
+            id: id
+          },
+          message:{
+            attachment:{
+              type:"template",
+              payload:{
+                template_type:"generic",
+                elements:[
+                   {
+                    title:'Plans',
+                    image_url:'http://www.xynapse-asia.com/webe/plan.jpg',
+                    subtitle:'Explore exacting services',
+                    buttons:[
+                      {
+                        type:"postback",
+                        title:"Check Now",
+                        payload:"Plans"
+                      }          
+                    ]
+                  },
+                  {
+                    title:'Build My Bundle',
+                    image_url:'http://www.xynapse-asia.com/webe/bundle-x.jpg',
+                    subtitle:'Get your perfect bundle',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Check Now",
+                        payload:"Build My Bundle"
+                      }              
+                    ]      
+                  },
+                  {
+                    title:'Account Usage',
+                    image_url:'http://www.xynapse-asia.com/webe/AccountUsage1.jpg',
+                    subtitle:'Check your account usage',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Check Balance",
+                        payload:"Account Usage"
+                      }              
+                    ]      
+                  },
+                  {
+                    title:'Payment History',
+                    image_url:'http://www.xynapse-asia.com/webe/PaymentHistory.jpg',
+                    subtitle:'Check your payment history/transaction',
+                    buttons:[
+                      {
+                        type:"postback",
+                        title:"Show History",
+                        payload:"Payment History"
+                      }              
+                    ]
+                  },
+                  {
+                    title:'Buy Smart Bytes',
+                    image_url:'http://www.xynapse-asia.com/webe/BuySmartBytes1.jpg',
+                    subtitle:'Buy a smart bytes',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Buy Now",
+                        payload:"Buy Smart Bytes"
+                      }              
+                    ]      
+                  },
+                  {
+                    title:'Help and Support',
+                    image_url:'http://www.xynapse-asia.com/webe/HelpandSupport.jpg',
+                    subtitle:'Help on your fingertips',
+                    buttons:[
+                     {
+                        type:"postback",
+                        title:"Help",
+                        payload:"Help"
+                      }              
+                    ]      
+                  }
+                ]
+              }
+            }
+          }});
+      
+    }
   const body = JSON.stringify({
     recipient: { id },
     message: { text },
