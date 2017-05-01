@@ -402,6 +402,7 @@ app.post('/webhook', (req, res) => {
             })
           }
         } else if (event.postback) {
+			console.log('payload postback', event.postback.payload);
           processPostback(event);
         }else {
           console.log('received event', JSON.stringify(event));
