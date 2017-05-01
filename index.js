@@ -327,7 +327,7 @@ app.post('/webhook', (req, res) => {
   // See the Webhook reference
   // https://developers.facebook.com/docs/messenger-platform/webhook-reference
   const data = req.body;
-
+	
   if (data.object === 'page') {
     data.entry.forEach(entry => {
       entry.messaging.forEach(event => {
@@ -342,7 +342,7 @@ app.post('/webhook', (req, res) => {
 
           // We retrieve the message content
           const {text, attachments} = event.message;
-
+			console.log('Received an event:'+event.message);
           if (attachments) {
             // We received an attachment
             // Let's reply with an automatic message
