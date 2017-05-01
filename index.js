@@ -38,7 +38,24 @@ app.listen((process.env.PORT || 3000));
 
 const fbMessage = (id, response) => {
 	var text = response;
-	if(text == "mainmenu"){
+	var http = response.substring(0,4);
+	if (http == 'http' || http == 'https') {
+        var body = JSON.stringify({
+            recipient: { 
+              id: id, 
+            },
+            message: {
+                attachment: {
+                    type: 'image',
+                    payload: {
+                        url: text
+                    }
+                }
+            }
+      });
+       
+
+    }else if(text == "mainmenu"){
 
       var body = JSON.stringify({
           recipient:{
