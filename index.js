@@ -36,7 +36,8 @@ app.listen((process.env.PORT || 3000));
 // See the Send API reference
 // https://developers.facebook.com/docs/messenger-platform/send-api-reference
 
-const fbMessage = (id, text) => {
+const fbMessage = (id, response) => {
+	var text = response.text;
 	if(text == "mainmenu"){
 
       var body = JSON.stringify({
