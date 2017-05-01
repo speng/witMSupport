@@ -402,7 +402,7 @@ app.post('/webhook', (req, res) => {
             })
           }
         } else if (event.postback) {
-			console.log('payload postback', event.postback.payload);
+			console.log('payload postback:', event.postback.payload);
           processPostback(event);
         }else {
           console.log('received event', JSON.stringify(event));
@@ -440,13 +440,11 @@ function processPostback(event) {
       sendMessage(senderId, {text: message});
     });
   }else{
-	const text =  event.postback.payload;
-	const sender = event.sender.id;
-	const sessionId = findOrCreateSession(sender);
+	const sessionId = findOrCreateSession(senderId);
 
-		 /*wit.runActions(
+		 wit.runActions(
 		  sessionId, // the user's current session
-		  text, // the user's message
+		  payload, // the user's message
 		  sessions[sessionId].context // the user's current session state
 		).then((context) => {
 		  console.log('Waiting for next user messages');
@@ -458,7 +456,7 @@ function processPostback(event) {
 		  }
 		  
 		})
-		.catch((err) => {
+		/*.catch((err) => {
 		  console.error('Oops! Got an error from Wit: ', err.stack || err);
 		})*/
   }
