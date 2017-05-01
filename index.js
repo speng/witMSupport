@@ -127,11 +127,32 @@ const fbMessage = (id, response) => {
             }
           }});
       
+    }else if(response.quickreplies){
+       var quickreplies = [];
+       var index;
+       var quick = response.quickreplies;
+      
+       for (index = 0; index < quick.length; ++index) {
+         
+          var json = {content_type:'text',title:quick[index],payload:'empty'};
+          quickreplies.push(json);
+      }
+       var body = JSON.stringify({
+            recipient: { 
+              id: id, 
+            },
+            message: {
+             text : text,
+             quick_replies:quickreplies
+
+           },
+        });
+
     }else{
 
         var body = JSON.stringify({
           recipient: { id },
-          message: { response },
+          message: { text },
         });
     }
   
