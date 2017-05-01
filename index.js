@@ -441,7 +441,7 @@ function processPostback(event) {
     });
   }else{
 	const sessionId = findOrCreateSession(senderId);
-
+		console.log('###############payload :', payload);
 		 wit.runActions(
 		  sessionId, // the user's current session
 		  payload, // the user's message
