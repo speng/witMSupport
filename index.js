@@ -37,7 +37,7 @@ app.listen((process.env.PORT || 3000));
 // https://developers.facebook.com/docs/messenger-platform/send-api-reference
 
 const fbMessage = (id, response) => {
-	var text = response.text;
+	var text = response;
 	if(text == "mainmenu"){
 
       var body = JSON.stringify({
