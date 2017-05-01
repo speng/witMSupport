@@ -440,11 +440,11 @@ function processPostback(event) {
       sendMessage(senderId, {text: message});
     });
   }else{
-	  const text =  event.postback.payload;
-		const sender = event.sender.id;
-		const sessionId = findOrCreateSession(sender);
+	const text =  event.postback.payload;
+	const sender = event.sender.id;
+	const sessionId = findOrCreateSession(sender);
 
-		 wit.runActions(
+		 /*wit.runActions(
 		  sessionId, // the user's current session
 		  text, // the user's message
 		  sessions[sessionId].context // the user's current session state
@@ -460,7 +460,7 @@ function processPostback(event) {
 		})
 		.catch((err) => {
 		  console.error('Oops! Got an error from Wit: ', err.stack || err);
-		})
+		})*/
   }
 }
 
