@@ -6,12 +6,12 @@ var request = require('request');
 var app = express();
 
 // Wit.ai parameters
-const WIT_TOKEN = '37BT5Z2COQLYOLMKKJXAYZZWP7H5YXNI';
+const WIT_TOKEN = 'HKTPCRXNFP5OYDKV3QZEERC4TSLZOLFK';
 
 // Messenger API parameters
 const FB_PAGE_TOKEN = 'EAAbI7HQaG5wBAGalHZAR8cssoctb2cZB2F06QNYDpLRxO9Mo3KGdfaBpLxtb3EiDcXKNCpuMReIQoNbrEFqNi8tRxJl7SICEiwhT1C39IqHsf2ToyM931zPooTDvn4wQTHp1RdXULPWZBAzOH4WJRBNKmh0dCJ68Xyowm1Gzk5MmNHnAW8A';
 
-var accessToken = '37BT5Z2COQLYOLMKKJXAYZZWP7H5YXNI';
+var accessToken = 'HKTPCRXNFP5OYDKV3QZEERC4TSLZOLFK';
 //var Wit = require('node-wit').Wit;
 //var interactive = require('node-wit').interactive;
 let Wit = null;
