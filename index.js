@@ -455,9 +455,9 @@ function processPostback(event) {
 			sessions[sessionId].context = context;
 		  }
 		  
-		}).catch((err) => {
+		})/*.catch((err) => {
 		  console.error('Oops! Got an error from Wit: ', err.stack || err);
-		})
+		})*/
   }
 }
 
