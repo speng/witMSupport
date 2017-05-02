@@ -39,6 +39,7 @@ app.listen((process.env.PORT || 3000));
 const fbMessage = (id, response) => {
 	var text = response;
 	var http = response.substring(0,4);
+	 console.log('fbMessage response:', JSON.stringify(response));
 	if (http == 'http' || http == 'https') {
         var body = JSON.stringify({
             recipient: { 
