@@ -306,27 +306,28 @@ const actions = {
   send(request, response) {
     const {sessionId, context, entities} = request;
     const {text, quickreplies} = response;
+	const recipientId = sessions[sessionId].fbid;
     /*return new Promise(function(resolve, reject) {
         console.log('user said...', request.text);
         console.log('sending...', JSON.stringify(response));
         return resolve();
     });*/
-	if (sessionId) {
+	if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return fbMessage(sessionId, response)
+      return fbMessage(recipientId, response)
       .then(() => null)
       .catch((err) => {
         console.error(
           'Oops! An error occurred while forwarding the response to',
-          sessionId,
+          recipientId,
           ':',
           err.stack || err
         );
       });
     } else {
-      console.error('Oops! Couldn\'t find user for session:', sessionId);
+      console.error('Oops! Couldn\'t find user for session:', recipientId);
       // Giving the wheel back to our bot
       return Promise.resolve()
     }
