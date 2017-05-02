@@ -39,7 +39,7 @@ app.listen((process.env.PORT || 3000));
 const fbMessage = (id, response) => {
 	var text = response;
 	var http = response.substring(0,4);
-	 console.log('#################fbMessage response:', JSON.stringify(response.quickreplies));
+	 console.log('#################fbMessage response:', JSON.stringify(response));
 	if (http == 'http' || http == 'https') {
         var body = JSON.stringify({
             recipient: { 
@@ -273,6 +273,7 @@ const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
+	console.log('#################Our bot actions:', JSON.stringify(text));
     const recipientId = sessions[sessionId].fbid;
     if (recipientId) {
       // Yay, we found our recipient!
@@ -529,7 +530,7 @@ function kittenMessage(recipientId, text) {
 // send rich message with kitten
 function witMessage(recipientId, text) {
 	var html = '<html><body></body></html>';
-	console.log("inside witMessage text:" + text);
+	console.log("##################inside witMessage text:" + text);
   jsdom.env({
     html: html,
     scripts: ['https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js'],
