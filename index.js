@@ -269,7 +269,7 @@ const firstEntityValue = (entities, entity) => {
 };
 
 // Our bot actions
-const actions = {
+/*const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -297,6 +297,40 @@ const actions = {
   }
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
+};*/
+
+
+
+//Define your bot functions here
+const actions = {
+  send(request, response) {
+    const {sessionId, context, entities} = request;
+    const {text, quickreplies} = response;
+    /*return new Promise(function(resolve, reject) {
+        console.log('user said...', request.text);
+        console.log('sending...', JSON.stringify(response));
+        return resolve();
+    });*/
+	if (sessionId) {
+      // Yay, we found our recipient!
+      // Let's forward our bot response to her.
+      // We return a promise to let our bot know when we're done sending
+      return fbMessage(sessionId, response)
+      .then(() => null)
+      .catch((err) => {
+        console.error(
+          'Oops! An error occurred while forwarding the response to',
+          sessionId,
+          ':',
+          err.stack || err
+        );
+      });
+    } else {
+      console.error('Oops! Couldn\'t find user for session:', sessionId);
+      // Giving the wheel back to our bot
+      return Promise.resolve()
+    }
+  },
 };
 
 // Setting up our bot
