@@ -332,6 +332,14 @@ const actions = {
       return Promise.resolve()
     }
   },
+  
+  ['getEnding']({entities, context}) {
+      return new Promise(function(resolve, reject) {
+         console.log("==============ending=============");
+            context.ending = "true";
+        return resolve(context);
+      });
+    }
 };
 
 // Setting up our bot
@@ -400,7 +408,8 @@ app.post('/webhook', (req, res) => {
           if (attachments) {
             // We received an attachment
             // Let's reply with an automatic message
-            fbMessage(sender, 'Sorry I can only process text messages for now.')
+			var msgErrorAttach = {text:'Sorry I can only process text messages for now.'};
+            fbMessage(sender, msgErrorAttach)
             .catch(console.error);
           } else if (text) {
             // We received a text message
