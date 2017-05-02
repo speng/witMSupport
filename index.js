@@ -37,8 +37,8 @@ app.listen((process.env.PORT || 3000));
 // https://developers.facebook.com/docs/messenger-platform/send-api-reference
 
 const fbMessage = (id, response) => {
-	var text = response;
-	var http = response.substring(0,4);
+	var text = response.text;
+	var http = text.substring(0,4);
 	 console.log('#################fbMessage response:', JSON.stringify(response));
 	if (http == 'http' || http == 'https') {
         var body = JSON.stringify({
