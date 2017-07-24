@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-const data = require('i18/eng_properties');
+//const data = require('i18/eng_properties');
 
 // Wit.ai parameters
 const WIT_TOKEN = 'HKTPCRXNFP5OYDKV3QZEERC4TSLZOLFK';
