@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
+const data = require('i18/eng_properties');
+
 // Wit.ai parameters
 const WIT_TOKEN = 'HKTPCRXNFP5OYDKV3QZEERC4TSLZOLFK';
 
@@ -332,6 +334,19 @@ const actions = {
       return Promise.resolve()
     }
   },
+  ['validateUserID']({entities, context}) {
+      return new Promise(function(resolve, reject) {
+         const username = firstEntityValue(entities, 'username'); 
+          if(username){
+            context.userFound = true;
+            delete context.userNotFound;
+          }else{
+            context.userNotFound = true;
+            delete context.userFound;
+          }
+        return resolve(context);
+      });
+    },
   ['getEnding']({entities, context}) {
       return new Promise(function(resolve, reject) {
          console.log("==============ending=============");
